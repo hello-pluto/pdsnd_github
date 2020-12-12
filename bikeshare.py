@@ -73,7 +73,7 @@ def get_filters():
     month = get_user_input('month', MONTHS)
     day = get_user_input('day', DAYS)
     
-    print('-'*40)
+    print_fancy_endline()
     return city, month, day
 
 
@@ -158,7 +158,7 @@ def time_stats(df):
     print('\nMost popular time to travel: ', popular_hour)
 
     print("\nThis took %s seconds to compute." % (time.time() - start_time))
-    print('-'*40)
+    print_fancy_endline()
 
 
 def station_stats(df):
@@ -180,7 +180,7 @@ def station_stats(df):
     print("\nMost commonly used combination of stations: ", popular_combination_station)
 
     print("\nThis took %s seconds to compute." % (time.time() - start_time))
-    print('-'*40)
+    print_fancy_endline()
 
 
 def trip_duration_stats(df):
@@ -199,6 +199,10 @@ def trip_duration_stats(df):
     print("Average duration of travel: ", mean_travel_duration)
 
     print("\nThis took %s seconds to compute." % (time.time() - start_time))
+    print_fancy_endline()
+
+
+def print_fancy_endline():
     print('-'*40)
 
 
@@ -233,7 +237,7 @@ def user_stats(df, city):
         print('\nBirth year of most common users:', most_common_year)
 
     print("\nThis took %s seconds to compute." % (time.time() - start_time))
-    print('-'*40)
+    print_fancy_endline()
 
 
 def main():
