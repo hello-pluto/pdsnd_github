@@ -1,2 +1,5 @@
-#Data files
+# Data files
 *.csv
+
+# System files
+.DS_Store

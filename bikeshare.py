@@ -1,6 +1,7 @@
 import time
 import pandas as pd
 import numpy as np
+from tabulate import tabulate
 
 CITIES = ['chicago', 'new york city', 'washington']
 
@@ -117,20 +118,24 @@ def load_data(city, month, day):
 
 def display_raw_data(df, num_rows):
     """
-    Iterates through the the dataframe provided, and generates the data for the specified number of rows.
+    Iterates through the the dataframe provided, and prints the data for the specified number of rows.
 
     Args:
         (frame) df - dataframe to iterate through
         (int) num_rows - number of rows to return the data for
-    Returns:
-        (str) - the specified rows of data, formatted as a json string
     """
 
+    i = 0
+    while True:
+        display_data = input('\nWould you like to see 5 lines of raw data? Enter yes or no.\n')
+        if display_data.lower() != 'yes':
+            break
+        print(tabulate(df.iloc[np.arange(0+i,num_rows+i)], headers ="keys"))
+        i+=5
 
-    for start_row in range(0, df.shape[0], num_rows):
-        end_row = min(start_row + num_rows, df.shape[0])
-        yield df.iloc[start_row:end_row, :].to_json(orient='index', indent=2)
-
+    # for start_row in range(0, df.shape[0], num_rows):
+    #     end_row = min(start_row + num_rows, df.shape[0])
+    #     yield df.iloc[start_row:end_row, :].to_json(orient='index', indent=2)
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
@@ -245,16 +250,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df, city)
-
-        view_raw_data = input('\nWould you like to view the first five rows of raw data? Enter yes or no.\n')
-        # get data for the next 5 rows    
-        get_raw_data = display_raw_data(df, 5)
-        print(next(get_raw_data))
-        while (view_raw_data.lower() != 'no'):
-            view_raw_data = input('\nWould you like to view the next five rows of raw data? Enter yes or no.\n')
-            if view_raw_data.lower() != 'yes':
-                break
-            print(next(get_raw_data))
+        display_raw_data(df, 5)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
