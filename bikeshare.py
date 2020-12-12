@@ -133,7 +133,7 @@ def display_raw_data(df, num_rows):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
+    """ Displays statistics on the most frequent times of travel. """
 
     print("\nCalculating the most popular/frequent times of travel...\n")
     print("N.B. If you have specified a month or day, this will automatically be reflected as the most popular option!\n")
@@ -162,7 +162,7 @@ def time_stats(df):
 
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip."""
+    """ Displays statistics on the most popular stations and trip. """
 
     print('\nCalculating the most popular stations and trip...\n')
     start_time = time.time()
@@ -184,7 +184,7 @@ def station_stats(df):
 
 
 def trip_duration_stats(df):
-    """Displays statistics on the total and average trip duration."""
+    """ Displays statistics on the total and average trip duration. """
 
     print('\nCalculating trip duration...\n')
     start_time = time.time()
@@ -208,7 +208,7 @@ def print_fancy_separator():
 
 
 def user_stats(df, city):
-    """Displays statistics on bikeshare users."""
+    """ Displays statistics on bikeshare users. """
 
     print('\nCalculating User statistics...\n')
     start_time = time.time()
