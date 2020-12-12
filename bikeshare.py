@@ -74,7 +74,7 @@ def get_filters():
     month = get_user_input('month', MONTHS)
     day = get_user_input('day', DAYS)
     
-    print('-'*40)
+    print_fancy_separator()
     return city, month, day
 
 
@@ -138,7 +138,7 @@ def display_raw_data(df, num_rows):
     #     yield df.iloc[start_row:end_row, :].to_json(orient='index', indent=2)
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
+    """ Displays statistics on the most frequent times of travel. """
 
     print("\nCalculating the most popular/frequent times of travel...\n")
     print("N.B. If you have specified a month or day, this will automatically be reflected as the most popular option!\n")
@@ -163,11 +163,11 @@ def time_stats(df):
     print('\nMost popular time to travel: ', popular_hour)
 
     print("\nThis took %s seconds to compute." % (time.time() - start_time))
-    print('-'*40)
+    print_fancy_separator()
 
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip."""
+    """ Displays statistics on the most popular stations and trip. """
 
     print('\nCalculating the most popular stations and trip...\n')
     start_time = time.time()
@@ -185,11 +185,11 @@ def station_stats(df):
     print("\nMost commonly used combination of stations: ", popular_combination_station)
 
     print("\nThis took %s seconds to compute." % (time.time() - start_time))
-    print('-'*40)
+    print_fancy_separator()
 
 
 def trip_duration_stats(df):
-    """Displays statistics on the total and average trip duration."""
+    """ Displays statistics on the total and average trip duration. """
 
     print('\nCalculating trip duration...\n')
     start_time = time.time()
@@ -204,11 +204,16 @@ def trip_duration_stats(df):
     print("Average duration of travel: ", mean_travel_duration)
 
     print("\nThis took %s seconds to compute." % (time.time() - start_time))
-    print('-'*40)
+    print_fancy_separator()
+
+
+def print_fancy_separator():
+    """ Prints a string of fancy ASCII charactors to separate the lines of printed text. """
+    print('｡+.｡ﾟ:;｡+ﾟ+｡::ﾟ｡:.ﾟ｡+｡'*5)
 
 
 def user_stats(df, city):
-    """Displays statistics on bikeshare users."""
+    """ Displays statistics on bikeshare users. """
 
     print('\nCalculating User statistics...\n')
     start_time = time.time()
@@ -238,7 +243,7 @@ def user_stats(df, city):
         print('\nBirth year of most common users:', most_common_year)
 
     print("\nThis took %s seconds to compute." % (time.time() - start_time))
-    print('-'*40)
+    print_fancy_separator()
 
 
 def main():
